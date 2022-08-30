@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./HomeScreens/Home";
+import Dogs from "./Dogs/Dogs";
+import Carts from "./Carts/Carts";
+import Navbar from "./Navbar/navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <div className="page-container">
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/dogs" element={<Dogs/>}/>
+            <Route path="/carts" element={<Carts/>}/>
+
+          </Routes>
+
+      </div>
+    </Router>
   );
 }
 
