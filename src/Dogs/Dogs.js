@@ -9,7 +9,8 @@ const Dogs = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("/v1/dogs");
+      // const res = await axios.get("/v1/dogs");
+      const res = await axios.get("https://dogs-be.vercel.app/v1/dogs");
       setDogs(res.data);
     };
     getData();
